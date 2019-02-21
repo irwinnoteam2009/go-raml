@@ -126,7 +126,7 @@ func (gs Server) Title() string {
 func (gs Server) RouteImports() []string {
 	imports := make(map[string]struct{})
 
-	baseAPIDir := filepath.Join(gs.RootImportPath, serverAPIDir)
+	baseAPIDir := filepath.ToSlash(filepath.Join(gs.RootImportPath, serverAPIDir))
 	for _, rd := range gs.ResourcesDef {
 		imports[baseAPIDir+"/"+rd.PackageName] = struct{}{}
 	}
